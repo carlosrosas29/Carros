@@ -16,8 +16,8 @@ namespace TiendaCarros
         {
             InitializeComponent();
         }
-        inicio a = new inicio();
-        carro m = new carro();
+        carro n = new carro();
+        inicio a;
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -25,22 +25,73 @@ namespace TiendaCarros
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //agregar
-            txtPlacas.Text = Convert.ToString(a.placas);
-            txtMarca.Text = Convert.ToString(a.marca);
-            txtModelo.Text = Convert.ToString(a.modelo);
-            txtTelefono.Text = Convert.ToString(a.telefono);
-            txtAño.Text = Convert.ToString(a.año);
+            a = new inicio();
+            a.pla = txtPlacas.Text;
+            a.mar = txtModelo.Text;
+            a.mo = txtMarca.Text;
+            a.tel = txtTelefono.Text;
+            a.ano = txtAño.Text;
+            n.agregar(a);
+            if (n.i < n.t)
+            {
+                MessageBox.Show(" agregado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Sin espacio", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            txtPlacas.Clear();
+            txtMarca.Clear();
+            txtModelo.Clear();
+            txtTelefono.Clear();
+            txtAño.Clear();
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            txtMostrar.Text = Convert.ToString(m.listar());
+            //listar
+            txtMostrar.Text = Convert.ToString(n.listar()); 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            //buscar
+            if (n.buscar(a.pla) == null)
+            {
+                txtMostrar.Clear();
 
+                a.pla = txtPlacas.Text;
+
+                MessageBox.Show(" encontrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("no encontrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            txtMostrar.Clear();
+            a.pla = txtPlacas.Text;
+            a.mar = txtMarca.Text;
+            a.mo = txtModelo.Text;
+            a.tel = txtTelefono.Text;
+            a.ano = txtAño.Text;
+            MessageBox.Show(" eliminado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            //insertar
+            int pso = Convert.ToInt32(txtPosicion.Text);
+            txtMostrar.Clear();
+            a.pla = txtPlacas.Text;
+            a.mar = txtMarca.Text;
+            a.mo = txtModelo.Text;
+            a.tel = txtTelefono.Text;
+            a.ano = txtAño.Text;
+            MessageBox.Show("insertado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

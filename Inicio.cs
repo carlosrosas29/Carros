@@ -8,31 +8,17 @@ namespace TiendaCarros
 {
     class inicio
     {
-        public string placas;
-        public string marca;
-        public string modelo;
-        public string telefono;
-        public string año;
-        public void add(string placas, string marca, string modelo, string telefono, string año)
-        {
-            inicio a = new inicio();
-            this.placas = placas;
-            this.marca = marca;
-            this.modelo = modelo;
-            this.telefono = telefono;
-            this.año = año;
-        }
-        public string p
+        private string placas;
+        private string marca;
+        private string modelo;
+        private string telefono;
+        private string año;
+        public string pla
         {
             get { return placas; }
             set { placas = value; }
         }
-        public string a
-        {
-            get { return año; }
-            set { año = value; }
-        }
-        public string m
+        public string mar
         {
             get { return marca; }
             set { marca = value; }
@@ -42,10 +28,15 @@ namespace TiendaCarros
             get { return modelo; }
             set { modelo = value; }
         }
-        public string t
+        public string tel
         {
             get { return telefono; }
             set { telefono = value; }
+        }
+        public string ano
+        {
+            get { return año; }
+            set { año = value; }
         }
     }
 }
